@@ -40,7 +40,7 @@
   "setting.gameDirectory": "Minecraft directory for shared versions, libraries and assets. Leave empty for the standard system Minecraft directory. Created when needed.",
   "setting.projectDirectory": "Parent directory for new mod projects. Empty prompts for a folder.",
   "setting.javaPath": "Default Java executable. Empty selects the required Java version automatically.",
-  "setting.microsoftClientId": "Client ID of your Microsoft public-client app approved for Minecraft Services, with device code flow enabled. No client secret is used.",
+  "setting.microsoftClientId": "Client ID of your Microsoft public-client app approved for Minecraft Services, with device code flow enabled. No client secret is used. A default Client ID is bundled with BlockIDE; replace it with your own if needed.",
   "setting.minMemory": "Default minimum JVM memory in MB. 0 uses the system-memory recommendation. Instance settings can override this value.",
   "setting.maxMemory": "Default maximum JVM memory in MB. 0 uses the system-memory recommendation. Instance settings can override this value.",
   "setting.gc": "Garbage collector. Default lets the selected JVM decide.",

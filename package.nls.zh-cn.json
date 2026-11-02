@@ -40,7 +40,7 @@
   "setting.gameDirectory": "存放共享版本、运行库和资源的 Minecraft 目录。留空使用系统标准 Minecraft 目录，需要时创建。",
   "setting.projectDirectory": "新模组项目的父目录。留空时选择目录。",
   "setting.javaPath": "默认 Java 可执行文件。留空自动选择所需 Java 版本。",
-  "setting.microsoftClientId": "已获 Minecraft Services 访问许可且启用设备代码登录的 Microsoft 公共客户端应用 Client ID。不使用客户端密钥。",
+  "setting.microsoftClientId": "已获 Minecraft Services 访问许可且启用设备代码登录的 Microsoft 公共客户端应用 Client ID。不使用客户端密钥。BlockIDE 已内置默认 Client ID，可按需替换为自己的应用 ID。",
   "setting.minMemory": "默认 JVM 最小内存（MB）。0 表示根据系统内存自动推荐，可在实例设置中覆盖。",
   "setting.maxMemory": "默认 JVM 最大内存（MB）。0 表示根据系统内存自动推荐，可在实例设置中覆盖。",
   "setting.gc": "垃圾回收器，默认由所选 JVM 决定。",

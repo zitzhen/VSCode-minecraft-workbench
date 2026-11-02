@@ -2211,7 +2211,7 @@
         "properties": {
           "minecraftWorkbench.microsoftClientId": {
             "type": "string",
-            "default": "",
+            "default": "67611ea9-cd9e-4954-b652-9c0f525dbda1",
             "markdownDescription": "%setting.microsoftClientId%",
             "scope": "machine"
           },
