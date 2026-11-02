@@ -38,8 +38,8 @@
     "onStartupFinished"
   ],
   "scripts": {
-    "compile": "tsc --noEmit && node esbuild.mjs",
-    "watch": "node esbuild.mjs --watch",
+    "compile": "tsc --noEmit && node .esbuild.mts",
+    "watch": "node .esbuild.mts --watch",
     "typecheck": "tsc --noEmit",
     "test": "node --require ./test/preload.cjs --import tsx --test test/*.test.ts",
     "package": "npm run legal && vsce package --no-dependencies --githubBranch main",
@@ -47,8 +47,8 @@
     "check:package": "node scripts/check-package.mjs",
     "test:host": "node scripts/test-host.mjs",
     "licenses": "node scripts/licenses.mjs",
-    "format": "prettier --write src test scripts .vscode esbuild.mjs tsconfig.json package.json package.nls.json package.nls.zh-cn.json",
-    "format:check": "prettier --check src test scripts .vscode esbuild.mjs tsconfig.json package.json package.nls.json package.nls.zh-cn.json",
+    "format": "prettier --write src test scripts .vscode .esbuild.mts tsconfig.json package.json package.nls.json package.nls.zh-cn.json",
+    "format:check": "prettier --check src test scripts .vscode .esbuild.mts tsconfig.json package.json package.nls.json package.nls.zh-cn.json",
     "legal": "node scripts/legal.mjs",
     "test:compat": "node scripts/test-host.mjs --compat"
   },
