@@ -2,8 +2,8 @@
   "name": "minecraft-workbench",
   "displayName": "Minecraft Workbench",
   "description": "%extension.description%",
-  "version": "0.5.1",
-  "publisher": "Lopleec",
+  "version": "1.0.0",
+  "publisher": "ZIT Studio",
   "license": "MIT",
   "engines": {
     "vscode": "^1.96.0",
