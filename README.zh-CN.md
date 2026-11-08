@@ -2,11 +2,23 @@
 
 [下载](https://github.com/lopleec/VSCode-minecraft-workbench/releases/latest) · [English](README.md) · [双语 README](README.md)
 
+> **本分支说明：** 本仓库由 ZIT Studio 维护，作为 [BlockIDE](https://github.com/zitzhen/BlockIDE) 使用的分支，派生自 [Lopleec/VSCode-minecraft-workbench](https://github.com/lopleec/VSCode-minecraft-workbench)。启动器功能来自上游，差异见[本分支的更改](#本分支的更改)。
+
 ## 简体中文
 
 **Java 设置**、**任务**、**输出**分别放在 **更多**。模组项目只出现在开发模式，各模式使用对应的管理页面。可通过 `minecraftWorkbench.showRuntimeViews` 单独显示 Java 和任务分栏。插件设置页跟随插件语言，也保留 VS Code 原生设置入口。
 
 在 VS Code 中启动 Minecraft Java 版、管理实例并开发模组。使用原生侧栏、命令、设置、任务和输出窗口；编辑器页面适配深色、浅色与高对比主题。默认跟随 VS Code 语言，也可单独手动选择英文或简体中文。
+
+### 本分支的更改
+
+本分支保留上游功能，并增加 BlockIDE 集成：
+
+- 内置默认 Microsoft Client ID，可直接用于正版登录；也可在 **工具 → 账户** 或 `minecraftWorkbench.microsoftClientId` 中替换，清空后需填写应用 ID 才能使用正版登录。
+- 构建脚本改为 `.esbuild.mts`，用于 [BlockIDE](https://github.com/zitzhen/BlockIDE) 内置扩展构建。
+- 许可与依赖声明在上游 Lopleec 版权基础上补充 ZIT Studio。
+
+其余功能与上游一致；独立 VSIX 由上游项目发布。
 
 ### 安装与开始使用
 
@@ -22,7 +34,7 @@
 安装 VSIX 不需要额外安装 Node.js，扩展使用 VS Code 自带的运行时。从源码构建、打包需要 **Node.js 22+**，这是打包工具链的要求：
 
 ```sh
-git clone https://github.com/lopleec/VSCode-minecraft-workbench.git
+git clone https://github.com/zitzhen/VSCode-minecraft-workbench.git
 cd VSCode-minecraft-workbench
 npm ci
 npm run package
@@ -114,9 +126,9 @@ Modrinth / CurseForge 整合包保留可管理文件的下载或本地来源记�
 
 ### 账户与 Microsoft 登录
 
-**插件不内置 Microsoft Client ID**；留空时使用离线账户。离线身份无法通过要求 Microsoft / Minecraft 验证的服务器认证。
+**本分支内置默认的 Microsoft Client ID。** 可直接使用，也可在 **工具 → 账户** 或 `minecraftWorkbench.microsoftClientId` 中替换为自己的公共客户端应用 ID；清空后仅能使用离线账户。离线身份无法通过要求 Microsoft / Minecraft 验证的服务器认证。
 
-正版登录需在 **工具 → 账户** 或 `minecraftWorkbench.microsoftClientId` 中填写自己的公共客户端应用 ID。应用必须支持设备代码流程、个人 Microsoft 账户、Xbox 登录并获得 Minecraft Services 访问许可；仅创建应用 ID 不保证获得 Minecraft Services 许可。不需要也不会收集客户端密钥。
+自定义应用 ID 必须支持设备代码流程、个人 Microsoft 账户、Xbox 登录并获得 Minecraft Services 访问许可；仅创建应用 ID 不保证获得 Minecraft Services 许可。不需要也不会收集客户端密钥。
 
 通过 Microsoft 设备登录页面授权。刷新令牌和 Minecraft 访问令牌存于 **VS Code SecretStorage**，到期前及启动前自动刷新；刷新失败需重新登录。移除账户会删除保存的凭据，账户名和 UUID 作为本地元数据保存。插件不收集遥测。
 
@@ -217,7 +229,7 @@ npm run package
 
 按 **F5** 打开扩展开发宿主。单元测试覆盖路径安全、状态保存及失败恢复、账户、续传、哈希、依赖、备份和项目定制。CI 在 Linux、Windows 和 macOS 检查格式、测试、编译和打包。
 
-宿主测试需要网络与本地或可下载的 VS Code。`VSCODE_EXECUTABLE` 可指定本地程序，`MW_LIVE_INSTALL=1` 会额外下载安装 Fabric 测试实例。Microsoft 登录需要获批应用和账户，不自动测试。游戏启动和 Gradle 构建，以及 Paper、Fabric、Quilt、Forge、NeoForge 1.21.4 服务端的安装、启动和停服，已在 macOS Apple Silicon 验证；其他平台及所有历史游戏 / Loader 组合尚未逐一人工验证。
+宿主测试需要网络与本地或可下载的 VS Code。`VSCODE_EXECUTABLE` 可指定本地程序，`MW_LIVE_INSTALL=1` 会额外下载安装 Fabric 测试实例。Microsoft 登录使用内置或自定义应用 ID 及真实账户，不自动测试。游戏启动和 Gradle 构建，以及 Paper、Fabric、Quilt、Forge、NeoForge 1.21.4 服务端的安装、启动和停服，已在 macOS Apple Silicon 验证；其他平台及所有历史游戏 / Loader 组合尚未逐一人工验证。
 
 `npm run test:compat` 会在隔离配置中使用最低支持的 VS Code，检查激活、协议保护、模式切换和 MCP。
 
@@ -235,7 +247,7 @@ npm run package
 
 ### 许可与致谢
 
-[MIT License](LICENSE)，Copyright © 2026 Lopleec。依赖许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 [THIRD_PARTY_LICENSES.txt](THIRD_PARTY_LICENSES.txt)。
+[MIT License](LICENSE)，Copyright © 2026 Lopleec 与 ZIT Studio。依赖许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 和 [THIRD_PARTY_LICENSES.txt](THIRD_PARTY_LICENSES.txt)。
 
 使用 VS Code API、XMCL、Modrinth API，以及 Fabric、Forge、NeoForge 官方模板。本项目独立于 Mojang、Microsoft、Modrinth 和各 Loader 项目。游戏文件、账户与下载内容仍适用各自条款和许可。
 
