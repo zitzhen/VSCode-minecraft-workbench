@@ -3,7 +3,7 @@
   "displayName": "Minecraft Workbench",
   "description": "%extension.description%",
   "version": "1.0.0",
-  "publisher": "ZIT Studio",
+  "publisher": "zitstudio",
   "license": "MIT",
   "engines": {
     "vscode": "^1.96.0",
