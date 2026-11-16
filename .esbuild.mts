@@ -15,13 +15,18 @@
 import * as esbuild from 'esbuild';
 import * as path from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
 
 const production = !process.argv.includes('--watch');
 const output = { minify: production, sourcemap: !production, sourcesContent: false };
 
 // XMCL 6.3.6 references an unpublished utils entry; unzip 2.2.0 points main at an omitted source file.
+// @xmcl/unzip is resolved through Node so that it is found both when it is installed in this folder
+// (npm) and when it is hoisted to the pnpm workspace root above it (BlockIDE's build).
 const alias: Record<string, string> = {
-  '@xmcl/unzip': path.resolve(import.meta.dirname, 'node_modules/@xmcl/unzip/dist/index.js'),
+  '@xmcl/unzip': require.resolve('@xmcl/unzip/dist/index.js'),
   '@xmcl/core/utils': path.resolve(import.meta.dirname, 'src/compat/xmcl-utils.ts'),
 };
 
