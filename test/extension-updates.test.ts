@@ -106,7 +106,7 @@ async function fixture() {
       'extension/package.json',
       Buffer.from(
         JSON.stringify({
-          publisher: 'Lopleec',
+          publisher: 'zitstudio',
           name: 'minecraft-workbench',
           version: nextVersion,
           engines: { vscode: '^1.96.0' },
@@ -313,7 +313,7 @@ test('VSIX validation rejects another extension, wrong version or unsupported VS
         'extension/package.json',
         Buffer.from(
           JSON.stringify({
-            publisher: 'Lopleec',
+            publisher: 'zitstudio',
             name: 'minecraft-workbench',
             version: r.version,
             engines: { vscode: '^1.96.0' },

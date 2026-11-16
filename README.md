@@ -47,7 +47,7 @@ npm run package
 
 Install the generated `.vsix` using the same steps above.
 
-The publisher is `Lopleec`; the extension ID is `Lopleec.minecraft-workbench`. If upgrading from the old `minecraft-workbench.minecraft-workbench` development build, uninstall that build before installing this one. Existing default storage is detected and reused. Microsoft accounts must sign in again because SecretStorage is scoped to the extension ID.
+The publisher is `zitstudio`; the extension ID is `zitstudio.minecraft-workbench`. If upgrading from the old `minecraft-workbench.minecraft-workbench` development build, uninstall that build before installing this one. Existing default storage is detected and reused. Microsoft accounts must sign in again because SecretStorage is scoped to the extension ID.
 
 ### Extension updates
 
